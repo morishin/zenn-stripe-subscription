@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}

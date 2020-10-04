@@ -1,0 +1,36 @@
+#!/bin/sh -eu
+
+NODE_VERSION=12
+
+cd "$(dirname "$0")"
+
+if !(type "node" > /dev/null 2>&1); then
+  echo "❌ node をインストールしてください。"
+  exit 1;
+fi
+if [[ ! `node -v` =~ ^v$NODE_VERSION.+$ ]]; then
+  echo "❌ node のバージョンは v$NODE_VERSION を使用してください。"
+  exit 1;
+fi
+if !(type "yarn" > /dev/null 2>&1); then
+  echo "❌ yarn をインストールしてください。macOS で Homebrew を使っている場合は \`brew install yarn --ignore-dependencies\` でインストールできます。"
+  exit 1;
+fi
+if !(type "firebase" > /dev/null 2>&1); then
+  echo "❌ firebase-tools をインストールしてください。\`yarn global add firebase-tools\` でインストールできます。"
+  exit 1;
+fi
+
+# dev
+cd ../dev
+yarn install
+
+# public
+cd ../public
+yarn install
+
+# functions
+cd ../functions
+yarn install
+
+printf "✅ Setup has been succeeded."
