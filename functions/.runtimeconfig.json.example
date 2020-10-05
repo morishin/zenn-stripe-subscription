@@ -1,0 +1,16 @@
+{
+  "app": {
+    "web_host": "your-firebase-project-id.web.app",
+    "encryption_secret_key": "your-own-awesome-password-value",
+    "encryption_salt": "your-own-awesome-salt-value"
+  },
+  "stripe": {
+    "secret_key": "your-stripe-api-secret-key",
+    "price_id": "your-stripe-price-id-that-you-can-create-at-stripe-web-console"
+  },
+  "sendgrid": {
+    "api_key": "your-sendgrid-api-key",
+    "payment_link_template_id": "your-sendgrid-dynamic-template-id",
+    "payment_completed_template_id": "your-sendgrid-dynamic-template-id"
+  }
+}
